@@ -1,0 +1,7 @@
+# Functions and grantees are referenced here by their CloudFormation-exported names
+
+- Name: Certificate
+  Export: cfn-certificate-resource:CertificateLambdaArn
+  Grantees:
+    - cfn-metadata:DevAgentRoleArn
+    - cfn-metadata:ProdAgentRoleArn

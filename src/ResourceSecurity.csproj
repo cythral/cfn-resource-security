@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <StackTags Include="Name" Value="CloudFormation Resource Security" />
+    <StackTags Include="Owner" Value="Cythral" />
+    <StackTags Include="OwnerContact" Value="Talen Fisher" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="8.1.1" />
+  </ItemGroup>
+
+  <Target Name="ResolveProps">
+    <PropertyGroup>
+      <ResourceSecurityTemplateFile>$(OutputPath)$(AssemblyName).template.yml</ResourceSecurityTemplateFile>
+      <ResourceSecurityConfigFile>$(OutputPath)$(AssemblyName).config.json</ResourceSecurityConfigFile>
+      <ResourceSecurityAssemblyFile>$(OutputPath)$(AssemblyName).dll</ResourceSecurityAssemblyFile>
+      <ResourceSecurityInputFile>$(MSBuildThisFileDirectory)../resources.yml</ResourceSecurityInputFile>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="GenerateTemplate" BeforeTargets="IncrementalClean" AfterTargets="PrepareForRun" DependsOnTargets="ResolveProps;PrepareForRun">
+    <Exec Command="dotnet $(ResourceSecurityAssemblyFile) $(ResourceSecurityInputFile) $(ResourceSecurityTemplateFile)" />
+
+    <PropertyGroup>
+      <ConfigFileLines>
+{
+  "Tags": {
+@(StackTags->'    "%(Identity)": "%(Value)"', ',%0D%0A')
+  }
+}
+      </ConfigFileLines>
+    </PropertyGroup>
+
+    <WriteLinesToFile
+      File="$(ResourceSecurityConfigFile)"
+      Lines="$(ConfigFileLines)"
+      />
+    
+    <ItemGroup>
+      <FileWrites Include="$(ResourceSecurityTemplateFile)" />
+      <FileWrites Include="$(ResourceSecurityConfigFile)" />
+      <FileWrites Include="$(OutputPath)YamlDotNet.dll" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      dotnet: 3.1
+  
+  build:
+    commands:
+      - dotnet --info
+      - dotnet build -c Release
+  
+artifacts:
+  discard-paths: yes
+  files:
+    - "bin/ResourceSecurity/Release/*/ResourceSecurity.template.yml"

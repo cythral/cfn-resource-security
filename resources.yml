@@ -5,3 +5,9 @@
   Grantees:
     - cfn-metadata:DevAgentRoleArn
     - cfn-metadata:ProdAgentRoleArn
+
+- Name: SamlProvider
+  Export: cfn-saml-provider-resource:SamlProviderLambdaArn
+  Grantees:
+    - cfn-metadata:DevAgentRoleArn
+    - cfn-metadata:ProdAgentRoleArn

@@ -182,4 +182,4 @@ Resources:
             }
           }
         - SharedRoleArn: !ImportValue cfn-utilities:MasterRoleArn
- 
+  

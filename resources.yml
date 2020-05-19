@@ -11,3 +11,9 @@
   Grantees:
     - cfn-metadata:DevAgentRoleArn
     - cfn-metadata:ProdAgentRoleArn
+
+- Name: Secret
+  Export: cfn-secret-resource:SecretLambdaArn
+  Grantees:
+    - cfn-metadata:DevAgentRoleArn
+    - cfn-metadata:ProdAgentRoleArn

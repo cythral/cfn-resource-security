@@ -3,12 +3,12 @@ phases:
   install:
     runtime-versions:
       dotnet: 3.1
-  
+
   build:
     commands:
       - dotnet --info
       - dotnet build -c Release
-  
+
 artifacts:
   discard-paths: yes
   files:

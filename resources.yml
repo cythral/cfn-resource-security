@@ -7,13 +7,6 @@
     - cfn-metadata:ProdAgentRoleArn
     - cfn-metadata:OssAgentRoleArn
 
-- Name: SamlProvider
-  Export: cfn-saml-provider-resource:SamlProviderLambdaArn
-  Grantees:
-    - cfn-metadata:DevAgentRoleArn
-    - cfn-metadata:ProdAgentRoleArn
-    - cfn-metadata:OssAgentRoleArn
-
 - Name: Secret
   Export: cfn-secret-resource:SecretLambdaArn
   Grantees:

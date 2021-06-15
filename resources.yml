@@ -13,3 +13,10 @@
     - cfn-metadata:DevAgentRoleArn
     - cfn-metadata:ProdAgentRoleArn
     - cfn-metadata:OssAgentRoleArn
+
+- Name: GatewayRoute
+  Export: cfn-gateway-route-resource:GatewayRouteLambdaArn
+  Grantees:
+    - cfn-metadata:DevAgentRoleArn
+    - cfn-metadata:ProdAgentRoleArn
+    - cfn-metadata:OssAgentRoleArn

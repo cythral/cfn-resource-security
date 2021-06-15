@@ -15,7 +15,7 @@
     - cfn-metadata:OssAgentRoleArn
 
 - Name: GatewayRoute
-  Export: cfn-gateway-route-resource:GatewayRouteLambdaArn
+  Export: cfn-gateway-route-resource:HandlerLambdaArn
   Grantees:
     - cfn-metadata:DevAgentRoleArn
     - cfn-metadata:ProdAgentRoleArn

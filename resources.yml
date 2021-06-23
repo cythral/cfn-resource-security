@@ -20,3 +20,10 @@
     - cfn-metadata:DevAgentRoleArn
     - cfn-metadata:ProdAgentRoleArn
     - cfn-metadata:OssAgentRoleArn
+
+- Name: GetJsonValue
+  Export: cfn-core:GetJsonValueFunctionArn
+  Grantees:
+    - cfn-metadata:DevAgentRoleArn
+    - cfn-metadata:ProdAgentRoleArn
+    - cfn-metadata:OssAgentRoleArn

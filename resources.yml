@@ -21,8 +21,8 @@
     - cfn-metadata:ProdAgentRoleArn
     - cfn-metadata:OssAgentRoleArn
 
-- Name: GetJsonValue
-  Export: cfn-core:GetJsonValueFunctionArn
+- Name: JsonValue
+  Export: cfn-json-value-resource:HandlerLambdaArn
   Grantees:
     - cfn-metadata:DevAgentRoleArn
     - cfn-metadata:ProdAgentRoleArn
